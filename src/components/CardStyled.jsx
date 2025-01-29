@@ -15,8 +15,11 @@ const CardStyledContainer = styled.div`
 `;
 
 const Button = styled.button`
-    // props...
-
+    height: 40px;
+    padding: 0 26px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
 `;
 
 const ButtonPill = styled(Button)`
@@ -25,15 +28,24 @@ const ButtonPill = styled(Button)`
 `;
 
 
-const CardStyled = () => {
+const CardStyled = ({image, titulo, texto, temBotao }) => {
     return (
         <CardStyledContainer>
-            <img className="card-img" src="https://biblioo.info/wp-content/uploads/2013/07/Luciana-Pereira-Rodrigues-Livro-e-leitura-no-Brasil.jpg" alt="" />
+            <img className="card-img" src={"https://biblioo.info/wp-content/uploads/2013/07/Luciana-Pereira-Rodrigues-Livro-e-leitura-no-Brasil.jpg"} alt="" />
             <h3 className="card-title">Titulo do card</h3>
             <p className="card-describe">Lorem ipsum dolor sit amet consectetur adipisicing elit. A consequatur fuga similique.</p>
-            <button className="card-btn">Leia mais</button>
+            {
+                temBotao && (
+                    <Button
+                        onClick={() => { alert("cliquei") }}
+                        className="card-btn"
+                    >
+                        Leia mais
+                    </Button>
+                )
+            }
         </CardStyledContainer>
     );
 }
- 
+
 export default CardStyled;
